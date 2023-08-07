@@ -1,0 +1,31 @@
+.app {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.todo-list-table {
+  width: 50%;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #ffffff;
+}
+.form-controls {
+  display: flex;
+}
