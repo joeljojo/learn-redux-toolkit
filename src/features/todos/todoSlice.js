@@ -9,23 +9,31 @@ const todoSlice = createSlice({
   reducers: {
     // our reducers
     // reducer function takes state and action as parameters
-    addTodo: (todos, action) => todos.push(action.payload),
+    addTodo: (todos, action) => {
+      todos.push(action.payload);
+    },
 
     updateTodo: (todos, action) => {
-      const todoIndex = todos.findIndex((todo) => todo === action.payload.id);
+      const todoIndex = todos.findIndex(
+        (todo) => todo.id === action.payload.id
+      );
       if (todoIndex !== -1) {
         todos[todoIndex] = action.payload; // action.payload is updated todo
       }
     },
 
-    deleteTodo: (todos, action) =>
-      todos.filter((todo) => todo.id !== action.payload.id),
-  },
-  toggleTodo: (todos, action) => {
-    const todoIndex = todos.findIndex((todo) => todo.id === action.payload.id);
-    if (todoIndex !== -1) {
-      todos[todoIndex].completed = !todos[todoIndex].completed;
-    }
+    deleteTodo: (todos, action) => {
+      console.log(todos, action);
+      return todos.filter((todo) => todo.id !== Number(action.payload));
+    },
+    toggleTodo: (todos, action) => {
+      const todoIndex = todos.findIndex(
+        (todo) => todo.id === Number(action.payload)
+      );
+      if (todoIndex !== -1) {
+        todos[todoIndex].completed = !todos[todoIndex].completed;
+      }
+    },
   },
 });
 

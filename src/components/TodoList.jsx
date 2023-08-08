@@ -1,12 +1,14 @@
+import { useSelector } from "react-redux";
 import AddTodo from "./AddTodo";
 import Table from "./Table";
 
 const TodoList = () => {
+  const todos = useSelector((state) => state.todos);
   return (
     <div className="todo-list-table">
-      <AddTodo />
       <h2>Todo App using Redux Toolkit</h2>
-      <Table />
+      <AddTodo />
+      <Table todos={todos} />
     </div>
   );
 };
